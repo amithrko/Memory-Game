@@ -1,4 +1,4 @@
-Project
+
 Memory Game Project 
 
 It's mainly designed with the knowledge of Javascript.And where game works on the formula of matching pair cards that is when a user selects or clicks on the card an icon of that card is been displayed with the blue coloured background  keeping that an icon in the mind a random card is again selected or clicked which might consist of same icon of the previous card which was clicked ,if the previous card icon is same as that of current card icon then the colour of both card gets changed from blue to cyan.Hence similarly all 8pairs(i.e.,16 cards) of  card is been selected in this manner if the condition between pair card is successfully satisfied then user will win this game.For every two cards that an user selects or clicks then number of moves that is been calculated is said to be one.
