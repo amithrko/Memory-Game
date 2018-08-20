@@ -37,7 +37,7 @@ var c1=0;
 
 //calling timer function to determine the time
 clock();
-
+shuffle(icons);
 
 //initiating the game by calling init()
 init();
