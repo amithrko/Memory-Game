@@ -1,5 +1,7 @@
 
 
+
+
 const icons=["fa fa-diamond","fa fa-diamond","fa fa-paper-plane-o","fa fa-paper-plane-o","fa fa-anchor","fa fa-anchor","fa fa-bolt","fa fa-bolt",
 "fa fa-cube","fa fa-cube","fa fa-leaf","fa fa-leaf","fa fa-bicycle","fa fa-bicycle","fa fa-bomb","fa fa-bomb"];
 
@@ -42,10 +44,13 @@ init();
 
 
 
+
+
+
+
 function init()
 {
 
-	shuffle(icons);
 
 	for(let i=0;i<icons.length;i++)
 	{
@@ -61,7 +66,7 @@ function init()
 		
 		const currentcard=this;
 		
-			if(openedcard.length===1)
+			if(openedcard.length==1)
 			{
 				//counting the number of moves
 				move();
@@ -72,6 +77,7 @@ function init()
 				//matching the previous and the current card
 				
 				//successful matches
+				
 				if(this.innerHTML===openedcard[0].innerHTML)
 				{
 					
@@ -80,13 +86,14 @@ function init()
 						
 						
 						//all the matched pair of cards are pushed on to the matched array
+						
 						matched.push(currentcard,openedcard[0]);
-						openedcard=[];
+						
 						
 						//determining an end of the game
 						over();
 						
-						
+						openedcard=[];
 					
 				}
 				
@@ -100,7 +107,7 @@ function init()
 						openedcard[0].classList.remove("open","show","disable");
 						
 						openedcard=[];
-						},500);
+						},100);
 						
 						
 						
@@ -131,6 +138,7 @@ function move()
 
 const star=document.querySelector(".stars");
 
+var cc;
 
 function over()
 {
@@ -139,11 +147,19 @@ function over()
 	{
 		//rating of stars based on number of moves
 		rating();
+		cc=confirm("Congrats,Game Over\n Moves:"+" "+moves.innerHTML+"\n"+"Time(mm:ss):"+document.getElementById("demo").innerHTML+"\n Start the new game by clicking on 'OK'");
+		if(cc==true)
+		{
+			document.location.href="Game.html";
+		}
+		else
+		{
+			
+		}
 		
-		alert("Game Over\n Moves:"+" "+moves.innerHTML+"\n"+"T	ime(mm:ss):"+document.getElementById("demo").innerHTML);
 		clearInterval(myTimer);
 		
-		
+		matched=[];
 	}	
 }
 
@@ -156,19 +172,17 @@ function rating()
 					<li><i class="fa fa-star"></i></li>`;
 			
 		}
-		else if(8<moves.innerHTML<=20)
+		else if(moves.innerHTML<=20&&moves.innerHTML>8)
 		{
-			star.innerHTML=`<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
-			clearInterval(myTimer);	
-		
 			
-		}
-		else if(20<moves.innerHTML<=40)
-		{
 			star.innerHTML=`<li><i class="fa fa-star"></i></li>
 					<li><i class="fa fa-star"></i></li>
 					<li><i class="fa fa-star"></i></li>`;	
+		}
+		else if(moves.innerHTML<=40&&moves.innerHTML>20)
+		{
 			
+			star.innerHTML=`<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
 		}
 		else
 		{
@@ -176,6 +190,8 @@ function rating()
 					<li><i class="fa fa-star"></i></li>`;
 			
 		}
+		
+		
 }
 
 
@@ -190,11 +206,12 @@ restart.addEventListener("click",function(){
 	
 	cardcontainer.innerHTML="";
 	
+	matched=[];
 	c=0;
 	c1=0;
 	
 	
-	star.innerHTML=`<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+	star.innerHTML=``;
 	
     document.getElementById("demo").innerHTML =c1+":"+c;
 	clock();
@@ -202,8 +219,10 @@ restart.addEventListener("click",function(){
 	init();
 	moves.innerHTML=0;
 	
+	openedcard=[];
 	
-	matched=[];
+	
+	
 });
 	
 	
