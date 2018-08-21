@@ -89,7 +89,7 @@ function init()
 						
 						matched.push(currentcard,openedcard[0]);
 						
-						
+						rating();
 						//determining an end of the game
 						over();
 						
@@ -147,16 +147,12 @@ function over()
 	{
 		//rating of stars based on number of moves
 		rating();
-		cc=confirm("Congrats,Game Over\n Moves:"+" "+moves.innerHTML+"\n"+"Time(mm:ss):"+document.getElementById("demo").innerHTML+"\n Start the new game by clicking on 'OK'");
+		cc=confirm("Congrats,Game Over\nMoves:"+" "+moves.innerHTML+"\n"+"Time(mm:ss): "+document.getElementById("demo").innerHTML+"\nRating: "+document.getElementById("star").innerHTML+"\nStart the new game by clicking on 'OK'");
+	
 		if(cc==true)
 		{
 			document.location.href="Game.html";
 		}
-		else
-		{
-			
-		}
-		
 		clearInterval(myTimer);
 		
 		matched=[];
@@ -166,29 +162,41 @@ function over()
 
 function rating()
 {
+		
 		if(moves.innerHTML==8)
 		{
-			star.innerHTML=`<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>
-					<li><i class="fa fa-star"></i></li>`;
+					
+			document.getElementById("star").innerHTML=" ";
+					
+			document.getElementById("star").innerHTML="&#9733 &#9733 &#9733";
+
 			
 		}
 		else if(moves.innerHTML<=20&&moves.innerHTML>8)
 		{
+					
+			document.getElementById("star").innerHTML="";
+					
+			document.getElementById("star").innerHTML="&#9733 &#9733 &#9733";
 			
-			star.innerHTML=`<li><i class="fa fa-star"></i></li>
-					<li><i class="fa fa-star"></i></li>
-					<li><i class="fa fa-star"></i></li>`;	
 		}
 		else if(moves.innerHTML<=40&&moves.innerHTML>20)
 		{
+					
+			document.getElementById("star").innerHTML="";
 			
-			star.innerHTML=`<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+			document.getElementById("star").innerHTML="&#9733 &#9733";
+			
+			
 		}
 		else
 		{
-			star.innerHTML=`<li><i class="fa fa-star"></i></li>
-					<li><i class="fa fa-star"></i></li>`;
+					
+			document.getElementById("star").innerHTML="";
 			
+			document.getElementById("star").innerHTML="&#9733 &#9733";
+			
+		
 		}
 		
 		
@@ -210,8 +218,8 @@ restart.addEventListener("click",function(){
 	c=0;
 	c1=0;
 	
-	
-	star.innerHTML=``;
+
+    document.getElementById("star").innerHTML ="";
 	
     document.getElementById("demo").innerHTML =c1+":"+c;
 	clock();
