@@ -37,8 +37,8 @@ var c1=0;
 
 //calling timer function to determine the time
 clock();
-shuffle(icons);
 
+shuffle(icons); 
 //initiating the game by calling init()
 init();
 
@@ -72,7 +72,7 @@ function init()
 				move();
 				
 				card.classList.add("open","show","disable");
-				openedcard.push(this);
+			
 				
 				//matching the previous and the current card
 				
@@ -89,7 +89,7 @@ function init()
 						
 						matched.push(currentcard,openedcard[0]);
 						
-						rating();
+						 rating();
 						//determining an end of the game
 						over();
 						
@@ -138,7 +138,8 @@ function move()
 
 const star=document.querySelector(".stars");
 
-var cc;
+
+var cc,cc1;
 
 function over()
 {
@@ -148,11 +149,13 @@ function over()
 		//rating of stars based on number of moves
 		rating();
 		cc=confirm("Congrats,Game Over\nMoves:"+" "+moves.innerHTML+"\n"+"Time(mm:ss): "+document.getElementById("demo").innerHTML+"\nRating: "+document.getElementById("star").innerHTML+"\nStart the new game by clicking on 'OK'");
-	
-		if(cc==true)
-		{
-			document.location.href="Game.html";
-		}
+		
+			if(cc==true)
+			{
+				document.location.href="Game.html";
+			}
+		
+
 		clearInterval(myTimer);
 		
 		matched=[];
@@ -162,14 +165,18 @@ function over()
 
 function rating()
 {
-		
 		if(moves.innerHTML==8)
 		{
 					
 			document.getElementById("star").innerHTML=" ";
 					
 			document.getElementById("star").innerHTML="&#9733 &#9733 &#9733";
-
+			
+			
+		
+				
+					
+			
 			
 		}
 		else if(moves.innerHTML<=20&&moves.innerHTML>8)
@@ -218,8 +225,9 @@ restart.addEventListener("click",function(){
 	c=0;
 	c1=0;
 	
-
-    document.getElementById("star").innerHTML ="";
+			
+	document.getElementById("star").innerHTML="";
+			
 	
     document.getElementById("demo").innerHTML =c1+":"+c;
 	clock();
