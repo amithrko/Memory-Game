@@ -19,6 +19,8 @@ body {
 body {
     background: url('http://hd-wallpapersfd.info/wp-content/uploads/HTML/Blue-and-Pink/Blue-and-Pink6.jpg'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
+	
+    background-size: 100%;
 }
 
 .container {
